@@ -6,6 +6,7 @@ const geocode = require('./utils/geocode.js')
 const darksky = require('./utils/darksky.js')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 const viewsPath = path.join(__dirname, '../templates/views')
 app.set('views', viewsPath)
@@ -75,6 +76,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-
+app.listen(port, () => {
+    console.log('Server is up and running on '+port)
 })

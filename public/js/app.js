@@ -10,7 +10,7 @@ form.addEventListener('submit',(e) => {
     message2.textContent = ''
 
     if (search.value.length > 0) {
-        fetch('http://localhost:3000/weather?address=' + search.value).then((response) => {
+        fetch('/weather?address=' + search.value).then((response) => {
             response.json().then((data) => {
                 if (data.error) {
                     message1.textContent = data.error
