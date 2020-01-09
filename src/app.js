@@ -8,14 +8,18 @@ const darksky = require('./utils/darksky.js')
 const app = express()
 const port = process.env.PORT || 3000
 
+//By default the views path is the root directory with a folder called 'views'
 const viewsPath = path.join(__dirname, '../templates/views')
 app.set('views', viewsPath)
-const parentDirectoryPath = path.join(__dirname, '../public')
+
 app.set('view engine', 'hbs')
 
+//Register partials which are sub views to bigger views
 const partialsPath = path.join(__dirname, '../templates/partials')
 hbs.registerPartials(partialsPath)
 
+//This path folder contains all the hbs files
+const parentDirectoryPath = path.join(__dirname, '../public')
 app.use(express.static(parentDirectoryPath))
 
 app.get('', (req, res) => {
